@@ -1,0 +1,14 @@
+redis:
+  build: ./dockerRedis
+# Open port between containers, this is not exposed outside the container set
+  expose:
+    - "6739:6739"
+
+node:
+  build: ./dockerNode
+  links:
+    - redis
+# Open port between containers, this is not exposed outside the container set
+  expose:
+    - "9191:9191"
+      
